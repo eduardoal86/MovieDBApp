@@ -50,7 +50,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
         holder.displayName.setText(resultsList.get(position).getName());
         holder.average.setText(resultsList.get(position).getVoteAverage().toString());
 
-        this.imagePoster = "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + resultsList.get(position).getUrlPoster();
+        this.imagePoster = context.getString(R.string.poster_path) + resultsList.get(position).getUrlPoster();
 
         Glide.with(context)
                 .load(this.imagePoster)

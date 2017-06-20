@@ -1,7 +1,7 @@
 package edualves.com.moviedbapp.ui;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
@@ -29,6 +29,7 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getDeps().inject(this);
 
         presenter = new TopRatedTvPresenter(service, this);
@@ -42,10 +43,11 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
     private void renderView() {
         setContentView(R.layout.activity_catalog);
         ButterKnife.bind(this);
+
     }
 
     private void init() {
-        recyclerList.setLayoutManager(new LinearLayoutManager(this));
+        recyclerList.setLayoutManager(new GridLayoutManager(this, 2));
     }
 
     @Override
