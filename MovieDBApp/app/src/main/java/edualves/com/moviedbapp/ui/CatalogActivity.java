@@ -93,12 +93,9 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
 
     @Override
     public void updateMovieList(TopRatedTVResponse topRatedTVResponse) {
-        adapter.notifyItemInserted(topRatedTVResponse.getResultListResponse().size() + 1);
         for (int i = 0; i < topRatedTVResponse.getResultListResponse().size(); i++) {
             adapter.add(topRatedTVResponse.getResultListResponse().get(i));
         }
 
-        //TODO ver a forma de criar um novo HOLDER(item) usando a posição acima
-        //adapter.bindViewHolder(new ResultAdapter.ViewHolder());
     }
 }
