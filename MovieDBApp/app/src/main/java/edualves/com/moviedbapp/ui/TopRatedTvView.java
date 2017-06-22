@@ -11,4 +11,6 @@ public interface TopRatedTvView {
     void FailureListTvShows(String errorMessage);
 
     void getListTvShowsSuccess(TopRatedTVResponse topRatedTVResponse);
+
+    void updateMovieList(TopRatedTVResponse topRatedTVResponse);
 }

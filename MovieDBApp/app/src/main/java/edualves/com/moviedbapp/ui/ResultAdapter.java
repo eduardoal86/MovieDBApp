@@ -1,6 +1,7 @@
 package edualves.com.moviedbapp.ui;
 
 import android.content.Context;
+import android.graphics.Movie;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,12 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
     public int getItemCount() {
         return resultsList.size();
     }
+
+    public void add(ResultsTopRatedTVResponse tvShow) {
+        resultsList.add(tvShow);
+        notifyDataSetChanged();
+    }
+
 
     public interface OnItemClickListener {
         void onClick(ResultsTopRatedTVResponse resultItem);
