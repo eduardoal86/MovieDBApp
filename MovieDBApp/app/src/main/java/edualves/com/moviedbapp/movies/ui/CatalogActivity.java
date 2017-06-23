@@ -1,5 +1,6 @@
 package edualves.com.moviedbapp.movies.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +13,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import edualves.com.moviedbapp.BaseApp;
 import edualves.com.moviedbapp.R;
-import edualves.com.moviedbapp.model.ResultsTopRatedTVResponse;
+import edualves.com.moviedbapp.details.ui.DetailActivity;
+import edualves.com.moviedbapp.model.TvShowResponse;
 import edualves.com.moviedbapp.model.TopRatedTVResponse;
 import edualves.com.moviedbapp.movies.presenter.TopRatedTvPresenter;
 import edualves.com.moviedbapp.service.Service;
@@ -70,17 +72,20 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
     }
 
     @Override
-    public void getListTvShowsSuccess(TopRatedTVResponse topRatedTVResponse) {
+    public void getListTvShowsSuccess(final TopRatedTVResponse topRatedTVResponse) {
         adapter = new ResultAdapter(
                 getApplicationContext(),
                 topRatedTVResponse.getResultListResponse(),
                 new ResultAdapter.OnItemClickListener() {
             @Override
-            public void onClick(ResultsTopRatedTVResponse resultItem) {
+            public void onClick(TvShowResponse resultItem) {
                 Toast.makeText(
                         CatalogActivity.this,
                         "Item: " + resultItem.getName(),
                         Toast.LENGTH_LONG).show();
+
+                Intent intent = DetailActivity.getStartIntent(CatalogActivity.this, resultItem);
+                startActivity(intent);
             }
         });
         recyclerList.setAdapter(adapter);

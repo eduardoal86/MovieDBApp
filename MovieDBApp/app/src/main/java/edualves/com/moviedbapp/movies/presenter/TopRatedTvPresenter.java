@@ -4,8 +4,8 @@ import android.accounts.NetworkErrorException;
 import android.util.Log;
 
 import edualves.com.moviedbapp.model.TopRatedTVResponse;
-import edualves.com.moviedbapp.service.Service;
 import edualves.com.moviedbapp.movies.ui.TopRatedTvView;
+import edualves.com.moviedbapp.service.Service;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 

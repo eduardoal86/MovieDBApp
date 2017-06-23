@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by edualves on 13/06/17.
  */
 
-public class ResultsTopRatedTVResponse implements Serializable {
+public class TvShowResponse implements Serializable {
 
     @SerializedName("original_name")
     String originalName;
