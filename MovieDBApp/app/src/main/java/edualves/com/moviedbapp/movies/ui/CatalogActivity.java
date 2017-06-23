@@ -1,4 +1,4 @@
-package edualves.com.moviedbapp.ui;
+package edualves.com.moviedbapp.movies.ui;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,9 +14,9 @@ import edualves.com.moviedbapp.BaseApp;
 import edualves.com.moviedbapp.R;
 import edualves.com.moviedbapp.model.ResultsTopRatedTVResponse;
 import edualves.com.moviedbapp.model.TopRatedTVResponse;
-import edualves.com.moviedbapp.presenter.TopRatedTvPresenter;
+import edualves.com.moviedbapp.movies.presenter.TopRatedTvPresenter;
 import edualves.com.moviedbapp.service.Service;
-import edualves.com.moviedbapp.ui.listener.EndlessRecyclerViewScrollListener;
+import edualves.com.moviedbapp.movies.ui.listener.EndlessRecyclerViewScrollListener;
 
 public class CatalogActivity extends BaseApp implements TopRatedTvView {
 

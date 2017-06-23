@@ -1,11 +1,11 @@
-package edualves.com.moviedbapp.presenter;
+package edualves.com.moviedbapp.movies.presenter;
 
 import android.accounts.NetworkErrorException;
 import android.util.Log;
 
 import edualves.com.moviedbapp.model.TopRatedTVResponse;
 import edualves.com.moviedbapp.service.Service;
-import edualves.com.moviedbapp.ui.TopRatedTvView;
+import edualves.com.moviedbapp.movies.ui.TopRatedTvView;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 

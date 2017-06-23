@@ -1,4 +1,4 @@
-package edualves.com.moviedbapp.ui.listener;
+package edualves.com.moviedbapp.movies.ui.listener;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;

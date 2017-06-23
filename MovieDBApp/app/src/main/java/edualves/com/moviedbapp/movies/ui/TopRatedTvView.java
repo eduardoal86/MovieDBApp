@@ -1,4 +1,4 @@
-package edualves.com.moviedbapp.ui;
+package edualves.com.moviedbapp.movies.ui;
 
 import edualves.com.moviedbapp.model.TopRatedTVResponse;
 

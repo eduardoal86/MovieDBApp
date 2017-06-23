@@ -4,7 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import edualves.com.moviedbapp.service.NetworkModule;
-import edualves.com.moviedbapp.ui.CatalogActivity;
+import edualves.com.moviedbapp.movies.ui.CatalogActivity;
 
 /**
  * Created by edualves on 13/06/17.

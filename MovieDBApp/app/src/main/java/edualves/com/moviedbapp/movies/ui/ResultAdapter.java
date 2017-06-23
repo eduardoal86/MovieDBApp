@@ -1,4 +1,4 @@
-package edualves.com.moviedbapp.ui;
+package edualves.com.moviedbapp.movies.ui;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
