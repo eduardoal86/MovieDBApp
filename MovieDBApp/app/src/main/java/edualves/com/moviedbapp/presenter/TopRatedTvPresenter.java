@@ -1,6 +1,7 @@
 package edualves.com.moviedbapp.presenter;
 
 import android.accounts.NetworkErrorException;
+import android.util.Log;
 
 import edualves.com.moviedbapp.model.TopRatedTVResponse;
 import edualves.com.moviedbapp.service.Service;
@@ -20,6 +21,8 @@ public class TopRatedTvPresenter {
 
     private CompositeSubscription subscriptions;
 
+    private final String LOG_TAG = TopRatedTvPresenter.class.getName();
+
     //TODO move this api key to another place
     String apikey = "de6449f3144f614ba03ad6d47111098b";
 
@@ -32,19 +35,38 @@ public class TopRatedTvPresenter {
 
     public void getTopRatedTvShows(Integer page) {
 
-        //check if it necessary call a method to display wait
-
         Subscription subscription = service.getTvTopRated(apikey, page, new Service.GetResultsCallback() {
             @Override
             public void onSuccess(TopRatedTVResponse topRatedTVResponse) {
-                //Log
+                Log.d(LOG_TAG, "OnSuccess:OK");
+                Log.d(LOG_TAG, "OnSuccess:"+ topRatedTVResponse.getTotalResults());
                 view.getListTvShowsSuccess(topRatedTVResponse);
             }
 
             @Override
             public void onError(NetworkErrorException exception) {
-                //LOG
+                Log.d(LOG_TAG, "OnError:"+exception.getMessage());
+                view.FailureListTvShows(exception.getMessage());
+            }
+        });
 
+        subscriptions.add(subscription);
+
+    }
+
+    public void updateTvShowsList(Integer page) {
+
+        Subscription subscription = service.getTvTopRated(apikey, page, new Service.GetResultsCallback() {
+            @Override
+            public void onSuccess(TopRatedTVResponse topRatedTVResponse) {
+                Log.d(LOG_TAG, "OnSuccess:OK");
+                Log.d(LOG_TAG, "OnSuccess:"+ topRatedTVResponse.getTotalResults());
+                view.updateMovieList(topRatedTVResponse);
+            }
+
+            @Override
+            public void onError(NetworkErrorException exception) {
+                Log.d(LOG_TAG, "OnError:"+exception.getMessage());
                 view.FailureListTvShows(exception.getMessage());
             }
         });

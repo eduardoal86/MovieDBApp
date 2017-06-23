@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MovieDBApp</string>
+    <string name="poster_path">https://image.tmdb.org/t/p/w185_and_h278_bestv2</string>
 </resources>

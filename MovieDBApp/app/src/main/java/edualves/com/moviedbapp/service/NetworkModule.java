@@ -43,7 +43,7 @@ public class NetworkModule {
                 }).build();
 
         return new Retrofit.Builder()
-                .baseUrl("http://api.nytimes.com/svc/movies/v2/reviews/")
+                .baseUrl("https://api.themoviedb.org/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
