@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import edualves.com.moviedbapp.BaseApp;
 import edualves.com.moviedbapp.R;
@@ -24,6 +23,7 @@ public class DetailActivity extends BaseApp {
     private Bundle extras;
 
     private TvShowResponse tvShowResponse;
+
 
     DetailFragment detailFragment = new DetailFragment();
 
@@ -46,6 +46,7 @@ public class DetailActivity extends BaseApp {
             tvShowResponse = (TvShowResponse) extras.getSerializable(TV_SHOW);
 
             goToDetailFragment();
+
         } //Just in case bundle == null, we can create an empty screen or display some error more friendly
 
 
@@ -54,8 +55,9 @@ public class DetailActivity extends BaseApp {
     private void goToDetailFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_detail, detailFragment)
+                .replace(R.id.fragment_detail, DetailFragment.newInstance(tvShowResponse))
                 .commit();
 
     }
+
 }
