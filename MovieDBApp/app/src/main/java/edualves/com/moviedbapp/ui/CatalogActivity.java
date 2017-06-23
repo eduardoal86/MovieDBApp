@@ -6,8 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -26,8 +24,6 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
     RecyclerView recyclerList;
 
     TopRatedTvPresenter presenter;
-
-    private EndlessRecyclerViewScrollListener scrollListener;
 
     ResultAdapter adapter;
 
@@ -57,7 +53,6 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
     private void init() {
         recyclerList.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerList.setHasFixedSize(false);
-
 
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerList.getLayoutManager();
 

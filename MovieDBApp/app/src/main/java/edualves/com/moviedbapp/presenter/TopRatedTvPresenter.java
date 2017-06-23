@@ -35,8 +35,6 @@ public class TopRatedTvPresenter {
 
     public void getTopRatedTvShows(Integer page) {
 
-        //check if it necessary call a method to display wait
-
         Subscription subscription = service.getTvTopRated(apikey, page, new Service.GetResultsCallback() {
             @Override
             public void onSuccess(TopRatedTVResponse topRatedTVResponse) {
@@ -57,8 +55,6 @@ public class TopRatedTvPresenter {
     }
 
     public void updateTvShowsList(Integer page) {
-
-        //check if it necessary call a method to display wait
 
         Subscription subscription = service.getTvTopRated(apikey, page, new Service.GetResultsCallback() {
             @Override
