@@ -27,11 +27,11 @@ public class DetailActivity extends BaseApp {
     public static final String TV_SHOW = "TV_SHOW";
     public static final String RELATED_ID = "RELATED_ID";
 
-    @BindView(R.id.related_container)
-    LinearLayout relatedContainer;
+    //@BindView(R.id.related_container)
+    //LinearLayout relatedContainer;
 
-    @BindView(R.id.fragment_related)
-    FrameLayout frameRelated;
+    //@BindView(R.id.fragment_related)
+    //FrameLayout frameRelated;
 
     private Bundle extras;
 
@@ -60,7 +60,7 @@ public class DetailActivity extends BaseApp {
             tvShowResponse = (TvShowResponse) extras.getSerializable(TV_SHOW);
 
             goToDetailFragment();
-            loadRelatedFragment();
+            //loadRelatedFragment();
 
         } //Just in case bundle == null, we can create an empty screen or display some error more friendly
 
@@ -77,13 +77,13 @@ public class DetailActivity extends BaseApp {
 
     private void loadRelatedFragment() {
 
-        getSupportFragmentManager()
+        /*getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_related, RelatedFragment.newInstance(tvShowResponse.getId()))
-                .commit();
+                .commit();*/
     }
 
-    @OnClick(R.id.related_title)
+    /*@OnClick(R.id.related_title)
     void displayRelatedFragment() {
 
         if (!isDisplayed) {
@@ -94,7 +94,7 @@ public class DetailActivity extends BaseApp {
             isDisplayed = false;
         }
 
-    }
+    }*/
 
 
 }

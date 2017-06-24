@@ -23,4 +23,6 @@ public interface Deps {
 
     void inject(DetailActivity detailActivity);
 
+    void inject(DetailFragment detailFragment);
+
 }

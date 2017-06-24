@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,8 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
 
     private RelatedPresenter relatedPresenter;
 
+    RecyclerView.LayoutManager recManager;
+
     @Inject
     public Service service;
 
@@ -77,9 +80,10 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
     }
 
     private void initList() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerRelated.setLayoutManager(linearLayoutManager);
-        recyclerRelated.setHasFixedSize(false);
+        recManager = new LinearLayoutManager(getContext());
+
+        recyclerRelated.setLayoutManager(recManager);
+
     }
 
     @Override
@@ -101,6 +105,9 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerRelated.setLayoutManager(linearLayoutManager);
         recyclerRelated.setAdapter(adapter);
     }
 }

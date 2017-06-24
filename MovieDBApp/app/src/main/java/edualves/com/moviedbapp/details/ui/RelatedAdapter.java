@@ -39,9 +39,7 @@ public class RelatedAdapter extends RecyclerView.Adapter<RelatedAdapter.ViewHold
     @Override
     public RelatedAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.related_show_item_view, null);
-        view.setLayoutParams(
-                new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,
-                        RecyclerView.LayoutParams.WRAP_CONTENT));
+
         return new ViewHolder(view);
     }
 
