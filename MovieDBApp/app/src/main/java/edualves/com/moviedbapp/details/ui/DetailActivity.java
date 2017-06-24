@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +25,10 @@ public class DetailActivity extends BaseApp {
     private static final String LOG_TAG = DetailActivity.class.getSimpleName();
 
     public static final String TV_SHOW = "TV_SHOW";
+    public static final String RELATED_ID = "RELATED_ID";
 
     @BindView(R.id.related_container)
-    RelativeLayout relatedContainer;
+    LinearLayout relatedContainer;
 
     @BindView(R.id.fragment_related)
     FrameLayout frameRelated;
@@ -49,6 +49,7 @@ public class DetailActivity extends BaseApp {
     @Override
     public void onCreate(@Nullable Bundle savedInstance) {
         super.onCreate(savedInstance);
+
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
@@ -59,6 +60,7 @@ public class DetailActivity extends BaseApp {
             tvShowResponse = (TvShowResponse) extras.getSerializable(TV_SHOW);
 
             goToDetailFragment();
+            loadRelatedFragment();
 
         } //Just in case bundle == null, we can create an empty screen or display some error more friendly
 
@@ -71,6 +73,14 @@ public class DetailActivity extends BaseApp {
                 .replace(R.id.fragment_detail, DetailFragment.newInstance(tvShowResponse))
                 .commit();
 
+    }
+
+    private void loadRelatedFragment() {
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_related, RelatedFragment.newInstance(tvShowResponse.getId()))
+                .commit();
     }
 
     @OnClick(R.id.related_title)
