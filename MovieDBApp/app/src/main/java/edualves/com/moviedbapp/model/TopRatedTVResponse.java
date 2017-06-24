@@ -21,7 +21,7 @@ public class TopRatedTVResponse implements Serializable {
     Integer totalPages;
 
     @SerializedName("results")
-    List<ResultsTopRatedTVResponse> resultListResponse;
+    List<TvShowResponse> resultListResponse;
 
     public Integer getPage() {
         return page;
@@ -47,11 +47,11 @@ public class TopRatedTVResponse implements Serializable {
         this.totalPages = totalPages;
     }
 
-    public List<ResultsTopRatedTVResponse> getResultListResponse() {
+    public List<TvShowResponse> getResultListResponse() {
         return resultListResponse;
     }
 
-    public void setResultListResponse(List<ResultsTopRatedTVResponse> resultListResponse) {
+    public void setResultListResponse(List<TvShowResponse> resultListResponse) {
         this.resultListResponse = resultListResponse;
     }
 }

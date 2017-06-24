@@ -1,4 +1,4 @@
-package edualves.com.moviedbapp.ui;
+package edualves.com.moviedbapp.movies.ui;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +17,7 @@ import com.bumptech.glide.request.target.Target;
 import java.util.List;
 
 import edualves.com.moviedbapp.R;
-import edualves.com.moviedbapp.model.ResultsTopRatedTVResponse;
+import edualves.com.moviedbapp.model.TvShowResponse;
 import edualves.com.moviedbapp.utils.Utils;
 
 /**
@@ -27,12 +27,12 @@ import edualves.com.moviedbapp.utils.Utils;
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder> {
 
     private final OnItemClickListener listener;
-    private List<ResultsTopRatedTVResponse> resultsList;
+    private List<TvShowResponse> resultsList;
     private Context context;
     String imagePoster;
 
     public ResultAdapter(Context context,
-                         List<ResultsTopRatedTVResponse> resultsList,
+                         List<TvShowResponse> resultsList,
                          OnItemClickListener listener) {
         this.listener = listener;
         this.context = context;
@@ -89,14 +89,14 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
         return resultsList.size();
     }
 
-    public void add(ResultsTopRatedTVResponse tvShow) {
+    public void add(TvShowResponse tvShow) {
         resultsList.add(tvShow);
         notifyDataSetChanged();
     }
 
 
     public interface OnItemClickListener {
-        void onClick(ResultsTopRatedTVResponse resultItem);
+        void onClick(TvShowResponse resultItem);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -114,7 +114,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
             average = (TextView) itemView.findViewById(R.id.vote_average);
         }
 
-        public void onClick(final ResultsTopRatedTVResponse result,
+        public void onClick(final TvShowResponse result,
                             final OnItemClickListener listener) {
 
             itemView.setOnClickListener(new View.OnClickListener() {
