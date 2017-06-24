@@ -3,41 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/show_detail" />
-
-    <RelativeLayout
-        android:id="@+id/related_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#EFEFEF"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:id="@+id/related_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/related"
-            android:textColor="#FF8000" />
-
-        <ImageView
-            android:id="@+id/down_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/related_title"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_icon_arrow_down_orange" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_related"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/down_arrow"
-            android:visibility="gone"/>
-
-    </RelativeLayout>
+    <include layout="@layout/show_detail"/>
 
 </RelativeLayout>

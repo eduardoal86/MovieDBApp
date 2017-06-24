@@ -1,17 +1,13 @@
 package edualves.com.moviedbapp.details.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -22,9 +18,6 @@ import edualves.com.moviedbapp.R;
 import edualves.com.moviedbapp.details.presenter.RelatedPresenter;
 import edualves.com.moviedbapp.model.RelatedResponse;
 import edualves.com.moviedbapp.model.ResultSimilarResponse;
-import edualves.com.moviedbapp.model.TvShowResponse;
-import edualves.com.moviedbapp.movies.ui.CatalogActivity;
-import edualves.com.moviedbapp.movies.ui.ResultAdapter;
 import edualves.com.moviedbapp.service.Service;
 
 /**
@@ -80,9 +73,8 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
     }
 
     private void initList() {
-        recManager = new LinearLayoutManager(getContext());
-
-        recyclerRelated.setLayoutManager(recManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerRelated.setLayoutManager(linearLayoutManager);
 
     }
 
@@ -106,8 +98,6 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
                     }
                 });
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerRelated.setLayoutManager(linearLayoutManager);
         recyclerRelated.setAdapter(adapter);
     }
 }
