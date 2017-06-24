@@ -3,7 +3,9 @@ package edualves.com.moviedbapp.details.ui;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +76,9 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
 
     private void initList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        SnapHelper snapHelper = new LinearSnapHelper();
         recyclerRelated.setLayoutManager(linearLayoutManager);
+        snapHelper.attachToRecyclerView(recyclerRelated);
 
     }
 
