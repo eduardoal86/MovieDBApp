@@ -23,15 +23,12 @@ import edualves.com.moviedbapp.utils.Utils;
 
 public class RelatedAdapter extends RecyclerView.Adapter<RelatedAdapter.ViewHolder> {
 
-    private final OnItemClickListener listener;
     private ResultSimilarResponse resultsList;
     private Context context;
     String imagePoster;
 
     public RelatedAdapter(Context context,
-                          ResultSimilarResponse resultsList,
-                          OnItemClickListener listener) {
-        this.listener = listener;
+                          ResultSimilarResponse resultsList) {
         this.context = context;
         this.resultsList = resultsList;
     }
@@ -45,14 +42,15 @@ public class RelatedAdapter extends RecyclerView.Adapter<RelatedAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(final RelatedAdapter.ViewHolder holder, int position) {
-        holder.onClick(resultsList.getRelatedResponseList().get(position), listener);
 
         holder.displayName.setText(Utils.countCharsForSpace(resultsList.getRelatedResponseList().get(position).getName(), 15));
 
         if (resultsList.getRelatedResponseList().get(position).getUrlPoster() == null) {
-            this.imagePoster = context.getString(R.string.poster_path) + resultsList.getRelatedResponseList().get(position).getUrlBackPoster();
+            this.imagePoster = String.format(context.getString(R.string.poster_path),
+                    resultsList.getRelatedResponseList().get(position).getUrlBackPoster());
         } else {
-            this.imagePoster = context.getString(R.string.poster_path) + resultsList.getRelatedResponseList().get(position).getUrlPoster();
+            this.imagePoster = String.format(context.getString(R.string.poster_path),
+                    resultsList.getRelatedResponseList().get(position).getUrlPoster());
         }
 
         Glide.with(context)
@@ -67,31 +65,15 @@ public class RelatedAdapter extends RecyclerView.Adapter<RelatedAdapter.ViewHold
         return resultsList.getRelatedResponseList().size();
     }
 
-    public interface OnItemClickListener {
-        void onClick(RelatedResponse resultItem);
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView displayName;
         ImageView posterImage;
-        //ProgressBar progressBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
             displayName = (TextView) itemView.findViewById(R.id.related_show_name);
             posterImage = (ImageView) itemView.findViewById(R.id.related_poster);
-        }
-
-        public void onClick(final RelatedResponse result,
-                            final OnItemClickListener listener) {
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onClick(result);
-                }
-            });
         }
 
     }

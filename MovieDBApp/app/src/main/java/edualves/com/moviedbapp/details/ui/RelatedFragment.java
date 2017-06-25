@@ -91,16 +91,7 @@ public class RelatedFragment extends Fragment implements RelatedShowView {
     public void getListSimilarShowsSuccess(ResultSimilarResponse resultSimilarResponse) {
         adapter = new RelatedAdapter(
                 getActivity(),
-                resultSimilarResponse,
-                new RelatedAdapter.OnItemClickListener() {
-                    @Override
-                    public void onClick(RelatedResponse resultItem) {
-                        Toast.makeText(
-                                getActivity(),
-                                "Item: " + resultItem.getName(),
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+                resultSimilarResponse);
 
         recyclerRelated.setAdapter(adapter);
     }

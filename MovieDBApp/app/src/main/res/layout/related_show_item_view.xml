@@ -10,8 +10,8 @@
         android:id="@+id/related_poster"
         android:layout_width="100dp"
         android:layout_height="130dp"
-        android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         tools:src="@android:drawable/btn_star" />
 
     <TextView
@@ -20,9 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/related_poster"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorAccent"
         android:layout_margin="8dp"
+        android:textSize="12sp"
         android:textAlignment="center"
+        android:textColor="@color/colorAccent"
         tools:text="The Tonight Show\nStarring Jimmy Fallon" />
 
 </RelativeLayout>
