@@ -55,7 +55,12 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
         holder.displayName.setText(Utils.countCharsForSpace(resultsList.get(position).getName(), 15));
         holder.average.setText(resultsList.get(position).getVoteAverage().toString());
 
-        this.imagePoster = context.getString(R.string.poster_path) + resultsList.get(position).getUrlPoster();
+
+        if (resultsList.get(position).getUrlPoster() == null) {
+            this.imagePoster = context.getString(R.string.poster_path) + resultsList.get(position).getUrlBackPoster();
+        } else {
+            this.imagePoster = context.getString(R.string.poster_path) + resultsList.get(position).getUrlPoster();
+        }
 
         Glide.with(context)
                 .load(this.imagePoster)

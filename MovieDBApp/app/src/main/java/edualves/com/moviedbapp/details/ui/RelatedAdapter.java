@@ -49,7 +49,11 @@ public class RelatedAdapter extends RecyclerView.Adapter<RelatedAdapter.ViewHold
 
         holder.displayName.setText(Utils.countCharsForSpace(resultsList.getRelatedResponseList().get(position).getName(), 15));
 
-        this.imagePoster = context.getString(R.string.poster_path) + resultsList.getRelatedResponseList().get(position).getUrlPoster();
+        if (resultsList.getRelatedResponseList().get(position).getUrlPoster() == null) {
+            this.imagePoster = context.getString(R.string.poster_path) + resultsList.getRelatedResponseList().get(position).getUrlBackPoster();
+        } else {
+            this.imagePoster = context.getString(R.string.poster_path) + resultsList.getRelatedResponseList().get(position).getUrlPoster();
+        }
 
         Glide.with(context)
                 .load(this.imagePoster)
