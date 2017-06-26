@@ -79,10 +79,6 @@ public class CatalogActivity extends BaseApp implements TopRatedTvView {
                 new ResultAdapter.OnItemClickListener() {
             @Override
             public void onClick(TvShowResponse resultItem) {
-                Toast.makeText(
-                        CatalogActivity.this,
-                        "Item: " + resultItem.getName(),
-                        Toast.LENGTH_LONG).show();
 
                 Intent intent = DetailActivity.getStartIntent(CatalogActivity.this, resultItem);
                 startActivity(intent);

@@ -79,4 +79,11 @@ public class TvShowResponse implements Serializable {
         this.overview = overview;
     }
 
+    public String getUrlBackPoster() {
+        return UrlBackPoster;
+    }
+
+    public void setUrlBackPoster(String urlBackPoster) {
+        UrlBackPoster = urlBackPoster;
+    }
 }

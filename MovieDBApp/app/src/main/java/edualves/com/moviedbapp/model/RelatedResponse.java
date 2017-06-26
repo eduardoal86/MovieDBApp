@@ -19,6 +19,8 @@ public class RelatedResponse implements Serializable {
     @SerializedName("name")
     String name;
 
+    @SerializedName("backdrop_path")
+    String urlBackPoster;
 
     public String getUrlPoster() {
         return urlPoster;
@@ -42,5 +44,13 @@ public class RelatedResponse implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUrlBackPoster() {
+        return urlBackPoster;
+    }
+
+    public void setUrlBackPoster(String urlBackPoster) {
+        this.urlBackPoster = urlBackPoster;
     }
 }

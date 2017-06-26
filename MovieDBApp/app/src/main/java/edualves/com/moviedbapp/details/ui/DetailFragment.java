@@ -71,7 +71,9 @@ public class DetailFragment extends Fragment {
 
     private void displayTvShowInfo() {
 
-        imagePath = getActivity().getResources().getString(R.string.poster_path) + tvShowResponse.getUrlPoster();
+        imagePath = String.format(
+                getActivity().getResources().getString(R.string.poster_path),
+                tvShowResponse.getUrlPoster());
 
         Glide.with(this)
                 .load(imagePath)
@@ -79,7 +81,9 @@ public class DetailFragment extends Fragment {
 
         nameDetail.setText(Utils.countCharsForSpace(tvShowResponse.getName(), 15));
         overviewDetail.setText(tvShowResponse.getOverview());
-        averageDetail.setText(tvShowResponse.getVoteAverage().toString());
+
+        averageDetail.setText(String.format(getActivity().getString(R.string.vote_score),
+                tvShowResponse.getVoteAverage().toString()));
     }
 
     @Override
